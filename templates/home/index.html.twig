@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div id="fullscreen-hero" class="landing">
+        {#<div class="menubar">#}
+        {#<ul>#}
+        {#<li><a href="#fullscreen-hero">Home</a></li>#}
+        {#<li><a href="#expertise">My expertise</a></li>#}
+        {#<li><a href="#projects">Projects</a></li>#}
+        {#<li><a href="#contactModal">Contact</a></li>#}
+        {#</ul>#}
+        {#</div>#}
+        <div class="aboutme">
+            <h1 class="remove">Hi I'm Daryl,</h1>
+
+            <h4>a 22 year old application/media developer student <br> who strives to be sophisticated and learn
+                something new every day.</h4>
+        </div>
+        <div class="learn-more">
+            <a href="#expertise" class="page-scroll tophover">
+                Learn more about what I do
+                <br>
+                <i class="fa fa-chevron-down"></i></a>
+        </div>
+    </div>
+    <div id="expertise">
+        <div class="container">
+            <div class="row">
+                <div class="eight columns offset-by-two">
+                    <h1 class="center title">My expertise</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="skillstext col-xs-12 col-md-4">
+                    <div class="expertiseblock center">
+                        <h4 class="title">Code</h4>
+                        <i class="fa fa-code my-blue"></i>
+                        <p class="summary lightp">
+                            To create websites I make use of HTML, CSS, bootstrap, javascript, jQuery, SQL, PHP and
+                            symfony or laravel
+
+                        </p>
+                    </div>
+                </div>
+                <div class="skillstext col-xs-12 col-md-4 center">
+                    <div class="expertiseblock">
+                        <h4 class="title">Design</h4>
+                        <i class="fa fa-magic my-blue"></i>
+                        <p class="summary lightp">
+                            For designs I make use of Adobe Photoshop CC 2017. I make designs from scratch or make
+                            tweaks to existing designs. The best part is turning designs into reality.
+                        </p>
+                    </div>
+                </div>
+                <div class="skillstext col-xs-12 col-md-4 center">
+                    <div class="expertiseblock">
+                        <h4 class="title">Wordpress</h4>
+                        <i class="fa fa-wordpress my-blue"></i>
+                        <p class="summary lightp">
+                            I have experience creating wordpress sites that are easy maintainable for the customer. They
+                            can also customize pages, texts and images if they wish to do so.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="projects">
+        <div class="container workbottom">
+            <div class="row">
+                <div class="center">
+                    <h1 class="introwork">My work</h1>
+                    <p class="statement">Want to see or get to know more about my work? <a
+                                href="mailto:darylholling@gmail.com">Email me</a>.</p>
+                    <a href="#work-together" class="page-scroll workhover">
+                        Or <i>get in touch</i> below.
+                        <br>
+                        <i class="fa fa-chevron-down workframe"></i></a>
+                </div>
+            </div>
+            {% for projecten in projectens %}
+                <section class="showcase">
+                    <div class="row">
+                        <div class="column pull-right col-xs-12 col-sm-6 col-md-6">
+                            <img id="myImg" src="{{ asset('images/tourguidegolf.png') }}" alt="Image"
+                                 class="project-image">
+                        </div>
+                        <div class="column pull-left col-xs-12 col-sm-6 col-md-6">
+                            <h3>{{ projecten.naam }}</h3>
+                            <p class="siteinfo lightp">
+                                {{ projecten.omschrijving }}
+                            </p>
+                            <a href="{{ projecten.sitelink }}" target="_blank" class="button button-primary">Visit
+                                Website</a>
+                        </div>
+                    </div>
+                </section>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="work-together">
+        <div class="container">
+            <div class="contacttxt">
+                <h2 class="contactintro">Let's create something great!</h2>
+                <p class="workintro remove">Want to work together? <br>
+                    Feel free to tell me about your project, I'd love to hear all about it! </p>
+                <a href="mailto:darylholling@gmail.com" class="button button-contact"
+                   data-toggle="modal" data-target="#contactModal">
+                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div id="footer">
+            <div class="container">
+                <div class="logo">
+                    <a href="{{ path('home') }}">
+                        <img src="{{ asset('images/Logo_Daryl_holling11.png') }}" class="footerlogo">
+                    </a>
+                </div>
+                <div class="copyrights">
+                    <p class="copyright">&copy; 2018 Daryl Holling<br><a class="maillink"
+                                                                         href="mailto:darylholling@gmail.com">Darylholling@gmail.com</a>
+                    </p>
+                </div>
+                <div class="media">
+                    <a href="https://www.linkedin.com/in/daryl-holling-6b4408124/" target="_blank">
+                        <i class="fa fa-linkedin-square fa-2x linkedin mediaradius" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
